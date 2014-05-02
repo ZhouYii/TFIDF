@@ -57,9 +57,9 @@ class TFIDF :
         self.max_freq = self.ordered_term_frequency[0][1]
 
     def tf_idf(self, term) :
-        ''' Calculate tf-idf for a term, based on training code '''
+        ''' Calculate tf-idf for a term, based on training corpus.  '''
         if not (self.term_docnum.has_key(term) and self.term_freq.has_key(term)) :
-            ''' If frequency is zero, the TF/IDF is also zero (divide by zero for
+            ''' If frequency is zero, the TF/IDF is always 0.5 (divide by zero for
             IDF)'''
             return 0
         tf = 0.5 + float(0.5*self.term_freq[term]) / float(self.max_freq)
